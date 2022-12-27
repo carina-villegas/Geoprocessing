@@ -1,12 +1,15 @@
-#Compute propieerties of layers
+#Propierties of layers
 
 import arcpy.mapping as c
-myMxd=c.MapDocument(r'C:\Data\Results\UUEE_2.mxd')
-map=myMxd.activeDataFrame
+fields=arcpy.ListFields(r'C:\Data\Ex_6\cities.shp')
+for field in fields:
+    print field.name, field.type, field.length, field.editable
+print "Done"  
 
-layers=c.ListLayers(myMxd,"",map)
-for lyr in layers:
-    lyr.name=lyr.name.lower()
-myMxd.save()
-del myMxd
-print "Done"
+#Compute the number of layers
+
+import arcpy.mapping as c
+myMxd=c.MapDocument(r'C:\Users\wwwca\Documents\Geography, MsC\Second semester\Programming and GIS\09_Geoprocessing_Basic\Practicing_Week 1_Geoprocessing.mxd')
+maps=c.ListDataFrames(myMxd)
+layers=c.ListLayers(myMxd)
+print 'A map has', len(layers)/len(maps), 'layers in average'
