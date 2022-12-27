@@ -13,3 +13,4 @@ myMxd=c.MapDocument(r'C:\Users\wwwca\Documents\Geography, MsC\Second semester\Pr
 maps=c.ListDataFrames(myMxd)
 layers=c.ListLayers(myMxd)
 print 'A map has', len(layers)/len(maps), 'layers in average'
+
