@@ -50,3 +50,16 @@ if name=="layer":
 myMxd.save()
 del myMxd   
 print "Done"
+
+#Capitalize layer names
+
+import arcpy.mapping as c
+myMxd=c.MapDocument(r'C:\Data\Results\UUEE_2.mxd')
+map=myMxd.activeDataFrame
+
+layers=c.ListLayers(myMxd,"",map)
+for lyr in layers:
+    lyr.name=lyr.name.upper() #or .lower for lower case
+myMxd.save()
+del myMxd
+print "Done"
