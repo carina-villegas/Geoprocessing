@@ -1,0 +1,12 @@
+#Compute propieerties of layers
+
+import arcpy.mapping as c
+myMxd=c.MapDocument(r'C:\Data\Results\UUEE_2.mxd')
+map=myMxd.activeDataFrame
+
+layers=c.ListLayers(myMxd,"",map)
+for lyr in layers:
+    lyr.name=lyr.name.lower()
+myMxd.save()
+del myMxd
+print "Done"
